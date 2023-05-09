@@ -1,0 +1,17 @@
+Act as AI coding assistant. Please, write a JavaScript function that can be used as a bookmarklet in Chrome. It should work on https://chat.openai.com/ and 
+
+1. find in the HTML page all the nodes matching XPath `//*[@id="__next"]/div[2]/div[2]/div/main/div[2]/div/div/div/div/div/div[2]/div[1]/div` and save them to “messages” array. Report an alert if the size of array is not even.  Handle the case no matching XPath gracefully.
+
+2. Use “model” variable to save the current model’s name: if there is a “model” argument in URL use its value, otherwise it is “gpt-3.5-turbo”.
+
+Then save the results in a JSON format:
+
+```
+model=“{model}”,
+messages=[
+        {“role”: “user”, “content”: <messages[i]>},
+        {“role”: “assistant”, “content”: <messages[I+1]>},
+    ]
+```
+
+Then come up with a creative file name without whitespaces based on the content of the first element of the messages array, and trigger downloading this file.
